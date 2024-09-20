@@ -7,3 +7,22 @@ spring:
 
   config:
     import: configserver:http://localhost:8888
+  # Message queue
+  cloud:
+    stream:
+      kafka:
+        binder:
+          # 9092 is the default port of Kafka
+          brokers: localhost:9092
+      bindings:
+        # https://docs.spring.io/spring-cloud-stream/reference/spring-cloud-stream/functional-binding-names.htm
+        # Format: <method name>-<in or out>-<index>
+        # receiveMessage: name of the method that receives the message
+        # in: because is a consumer
+        # 0: Index of the binding. This allows the same method to receive from multiple queues
+        receiveMessage-in-0:
+          destination: ms-example-queue
+          # Group is necessary to ensure that this
+          # consumer receives all messages sent while
+          # it was offline
+          group: my-consumer-group
