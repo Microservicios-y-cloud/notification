@@ -1,10 +1,10 @@
-package co.edu.javeriana.msc.turismo.order_management_microservice.queue.dtos;
+package co.edu.javeriana.msc.turismo.notification.dtos;
 
-import co.edu.javeriana.msc.turismo.order_management_microservice.dto.Customer;
-import co.edu.javeriana.msc.turismo.order_management_microservice.orders.enums.PaymentStatus;
-import co.edu.javeriana.msc.turismo.order_management_microservice.orders.enums.Status;
+import co.edu.javeriana.msc.turismo.notification.enums.PaymentStatus;
+import co.edu.javeriana.msc.turismo.notification.enums.Status;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,6 +17,6 @@ public record PurchaseNotification(
         Status orderStatus,
         PaymentStatus paymentStatus,
         List<PurchaseItem> purchaseItems,
-        Double amount
+        BigDecimal amount
 ) implements Serializable {
 }

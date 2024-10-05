@@ -20,9 +20,20 @@ spring:
         # receiveMessage: name of the method that receives the message
         # in: because is a consumer
         # 0: Index of the binding. This allows the same method to receive from multiple queues
-        receiveMessage-in-0:
-          destination: ms-example-queue
-          # Group is necessary to ensure that this
-          # consumer receives all messages sent while
-          # it was offline
-          group: my-consumer-group
+        receiveNotification-in-0:
+          destination: order-notification-queue
+          group: order-notification-group
+  mail:
+    username: velasquitop204@gmail.com
+    port: 587
+    host: smtp.gmail.com
+    password: jiqi uiuz ctja kwor
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        transport:
+            protocol: smtp

@@ -1,4 +1,4 @@
-package co.edu.javeriana.msc.turismo.order_management_microservice.queue.dtos;
+package co.edu.javeriana.msc.turismo.notification.dtos;
 
 public record PurchaseItem(
         Double subtotal,

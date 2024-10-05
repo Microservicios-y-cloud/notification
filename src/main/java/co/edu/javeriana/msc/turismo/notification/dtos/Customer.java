@@ -1,4 +1,4 @@
-package co.edu.javeriana.msc.turismo.payment_microservice.payment.dto;
+package co.edu.javeriana.msc.turismo.notification.dtos;
 
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;

@@ -1,6 +1,6 @@
-package co.edu.javeriana.msc.turismo.service_rating_microservice.queue.dtos;
+package co.edu.javeriana.msc.turismo.notification.dtos;
 
-import co.edu.javeriana.msc.turismo.service_rating_microservice.enums.ServiceType;
+import co.edu.javeriana.msc.turismo.notification.enums.ServiceType;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
