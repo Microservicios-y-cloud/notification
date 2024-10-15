@@ -24,19 +24,18 @@ public class MessageQueueConsumer {
             log.info("Payload: {}", message.getPayload());
             log.info("Customer received: {}", message.getPayload().purchaser().getEmail());
 
-            if(message.getPayload().orderStatus().equals(Status.ACEPTADA)){
+            if (message.getPayload().paymentStatus().equals(PaymentStatus.RECHAZADA)){
                 try {
-                    emailService.sentOrderSuccessEmail(
+                    emailService.sentPaymentFailEmail(
                             message.getPayload().purchaser().getEmail(),
                             message.getPayload().purchaser().getFirstName() + " " + message.getPayload().purchaser().getLastName(),
                             message.getPayload().amount(),
-                            message.getPayload().id(),
-                            message.getPayload().purchaseItems());
+                            message.getPayload().id());
                 } catch (Exception e) {
                     log.error("Error sending email", e);
                 }
             }
-            else if (message.getPayload().paymentStatus().equals(PaymentStatus.ACEPTADA)){
+            if (message.getPayload().paymentStatus().equals(PaymentStatus.ACEPTADA)){
                 try {
                     emailService.sentPaymentSuccessEmail(
                             message.getPayload().purchaser().getEmail(),
