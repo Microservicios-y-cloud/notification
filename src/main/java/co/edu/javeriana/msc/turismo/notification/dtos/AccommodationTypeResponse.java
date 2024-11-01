@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "accommodationTypes")
 public record AccommodationTypeResponse(
         @Id
-        Long accomodationTypeId,
+        Long accommodationTypeId,
         String name
 ) {
 }
