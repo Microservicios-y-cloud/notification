@@ -8,5 +8,6 @@ FROM openjdk:17-jdk-alpine
 COPY --from=builder /app/source/target/*.jar app.jar
 EXPOSE 8081
 ADD start.sh .
+RUN chmod +x start.sh
 # Comando de ejecucion
 ENTRYPOINT ["/start.sh"]
